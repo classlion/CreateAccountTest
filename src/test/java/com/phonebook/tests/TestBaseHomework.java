@@ -11,13 +11,13 @@ import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-public class TestBase {
+public class TestBaseHomework {
     WebDriver driver;
 
     @BeforeMethod
     public void setUp(){
         driver = new ChromeDriver();
-        driver.get("https://telranedu.web.app/home");
+        driver.get("https://demowebshop.tricentis.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
