@@ -3,10 +3,31 @@ package com.phonebook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTests extends TestBase {
-    //
+public class CreateAccountTests extends TestBase {
+    //int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
+
+    @Test(enabled = false)
+    public void newUserRegistrationPositiveTest() {
+        //click on Login Link
+        clickOnLoginLink();
+
+        //enter Email to email field
+        //click, ochishenie, dannie
+        //randomniy email
+        //type(By.name("email"), "1a" + i + "@1b.com");
+        fillRegisterLoginForm(new User().setEmail("classlion1@gmail.com").setPassword("Aa12345$"));
+
+        //click on Registration button
+        clickOnRegistratoin();
+
+        //verify SingOut Link is displayed
+        Assert.assertTrue(isSignOutButtonPresent());
+
+    }
+
+
     @Test
-    public void loginPositiveTest() {
+    public void existedUserRegistrationNegativeTest() {
         //click on Login Link
         clickOnLoginLink();
 
@@ -14,27 +35,12 @@ public class LoginTests extends TestBase {
         //click, ochishenie, dannie
         fillRegisterLoginForm(new User().setEmail("classlion1@gmail.com").setPassword("Aa12345$"));
 
-        //click Login button
-        clickOnLoginButton();
-
-        //verify SingOut Link is displayed
-        Assert.assertTrue(isSignOutButtonPresent());
-    }
-
-    @Test
-    public void loginNegativeWithoutEmailTest() {
-        //click on Login Link
-        clickOnLoginLink();
-
-        //enter Email to email field
-        //click, clear, dannie
-        fillRegisterLoginForm(new User().setPassword("Aa12345$"));
-
-        //click Login button
-        clickOnLoginButton();
+        //click on Registration button
+        clickOnRegistratoin();
 
         //verify SingOut Link is displayed
         Assert.assertTrue(isAlertDisplayed());
+
     }
 
 }

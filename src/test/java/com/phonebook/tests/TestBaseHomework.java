@@ -53,4 +53,13 @@ public class TestBaseHomework {
             return true;
         }
     }
+
+
+    protected void fillRagesterLoginForm(NewUserHomework newUserHomework) {
+        type(By.id("FirstName"), newUserHomework.getFirstName());
+        type(By.id("LastName"), newUserHomework.getConfirmPassword());
+        type(By.id("Email"), newUserHomework.getEmail());
+        type(By.id("Password"), newUserHomework.getPassword());
+        type(By.id("ConfirmPassword"), newUserHomework.getConfirmPassword());
+    }
 }
